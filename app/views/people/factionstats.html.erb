@@ -1,0 +1,12 @@
+<br/>
+<div class="container">
+<%= render 'person_badge', {:person => @person} %>
+
+<h2>Faction Status</h2>
+<% @factions_sorted.each do |faction_title, faction_info| %>
+    <p><%= faction_info['progressToNextLevel'] %></p>
+    <%= render 'character_badge', {:character => faction_info['character'] } %>
+    <p></p>
+<% end %>
+
+</div>

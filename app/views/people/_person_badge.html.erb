@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-md-1">
+        <img height=75 width=75 src="http://www.bungie.net/<%= person.api_info['bungieNetUser']['profilePicturePath'] %>"/>
+    </div>
+    <div class="col-md-7">
+        <h4>
+            <a href="/people/2/<%= person.destiny_account['userInfo']['displayName'] %>">
+                <%= person.destiny_account['userInfo']['displayName'] %>
+            </a>
+        <span class="badge"><%= person.destiny_account['grimoireScore'] %></span></h4>
+        <p><%= person.destiny_account['clanName'] %></p>
+    </div>
+</div>

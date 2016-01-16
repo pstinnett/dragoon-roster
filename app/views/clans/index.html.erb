@@ -1,0 +1,7 @@
+<h1>All Clans</h1>
+
+<% @clans.each do |clan| %>
+    <p><%= link_to clan.info['name'], clan_path(clan)%></p>
+<% end %>
+
+<%= link_to 'New Clan', new_clan_path %>

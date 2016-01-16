@@ -1,0 +1,27 @@
+<h1>New Clan for Tracking</h1>
+
+<%= form_for :clan, url: clans_path do |f| %>
+
+  <% if @clan.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@clan.errors.count, "error") %> prohibited
+        this clan from being saved:
+      </h2>
+      <ul>
+        <% @clan.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :clan_id %><br>
+    <%= f.text_field :clan_id %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

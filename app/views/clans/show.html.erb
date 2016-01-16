@@ -1,0 +1,5 @@
+  <h1><%= @clan.info['name'] %></h1>
+
+    <% @clan.members.each do |member| %>
+            <%= render "people/person_badge", { :person => member} %>
+    <% end %>

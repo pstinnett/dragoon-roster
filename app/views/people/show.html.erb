@@ -1,0 +1,10 @@
+<br/>
+<div class="container">
+<%= render 'person_badge', {:person => @person} %>
+
+<% @person.characters.each do |character| %>
+    <%= render 'character_badge', {:character => character} %>
+<% end %>
+
+
+</div>
