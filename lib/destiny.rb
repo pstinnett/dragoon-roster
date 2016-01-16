@@ -1,4 +1,3 @@
-require 'HTTParty'
 
 
 class Destiny
