@@ -1,5 +1,3 @@
-
-
 class Destiny
   include HTTParty
   require_relative 'person'
@@ -15,7 +13,6 @@ class Destiny
 
   def query(uri, query = {}, short_response = true)
 
-    Rails.logger.debug "Using the URI: #{uri}"
     raw_results = self.class.get(
       uri,
       headers: @headers,

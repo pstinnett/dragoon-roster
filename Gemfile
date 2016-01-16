@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'httparty'
+gem 'rails_12factor'
 
 gem 'therubyracer'  # If using Ruby
 #gem 'therubyrhino'  # If using JRuby
