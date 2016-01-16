@@ -36,12 +36,13 @@ class Character < Destiny
     
     progressions_raw.each do |progression_raw|
       progression_info = self.query("/Destiny/Manifest/7/#{progression_raw['progressionHash']}", {}, false)['Response']['data']
-      Rails.logger.debug "PI: #{progression_info}"
+      Rails.logger.debug "Progress: #{progression_info}"
       progressions[progression_info['progression']['name']] = {
         'level' => progression_raw['level'],
         'currentProgress' => progression_raw['currentProgress'],
         'progressToNextLevel' => progression_raw['progressToNextLevel'],
         'nextLevelAt' => progression_raw['nextLevelAt'],
+        'name' => progression_info['progression']['name'],
         'pointsToNextLevel' => progression_raw['nextLevelAt'] - progression_raw['progressToNextLevel']
       }
     end
