@@ -5,9 +5,11 @@ class Destiny
   format :json
   # Set the base URI
   base_uri 'www.bungie.net/Platform'
+  caches_api_responses :key_name => "dragoons", :expire_in => 3600
 
   def initialize()
 		api_token = Rails.application.secrets.bungie_api_token
+    HTTParty::HTTPCache.redis = $redis
     @headers = { 'X-API-Key' => api_token, 'Content-Type' => 'application/json' }
   end
 

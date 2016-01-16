@@ -5,7 +5,11 @@
 <h2>Faction Status</h2>
 <% @factions_sorted.each do |faction_title, faction_info| %>
     <p><%= faction_info['progressToNextLevel'] %></p>
-    <%= render 'character_badge', {:character => faction_info['character'] } %>
+    <%= render 'character_badge', {:character => Character.new(
+        faction_info['character']['membership_type'],
+        faction_info['character']['username'],
+        faction_info['character']['character_id'],
+    )} %>
     <p></p>
 <% end %>
 

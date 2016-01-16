@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'httparty'
+gem 'httparty', '~>0.8.3'
+gem 'cachebar'
+gem 'redis'
 gem 'rails_12factor'
 
 gem 'therubyracer'  # If using Ruby

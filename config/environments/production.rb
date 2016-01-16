@@ -76,4 +76,6 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  HTTParty::HTTPCache.perform_caching = true
+  HTTParty::HTTPCache.logger = Rails.logger
 end

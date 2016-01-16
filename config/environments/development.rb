@@ -38,4 +38,7 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  ## Set up caching
+  HTTParty::HTTPCache.perform_caching = true
+  HTTParty::HTTPCache.logger = Rails.logger
 end

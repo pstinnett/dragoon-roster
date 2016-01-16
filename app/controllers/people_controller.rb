@@ -29,7 +29,12 @@ class PeopleController < ApplicationController
           label = "#{faction_title} #{character}"
           
           ## Tack the character in the hash too
-          progressions[faction_title]['character'] = character.api_info['data']
+          Rails.logger.debug "CHAR: #{character.api_info['data']}"
+          progressions[faction_title]['character'] = {
+            'membership_type' => character.api_info['data']['characterBase']['membershipType'],
+            'character_id' => character.api_info['data']['characterBase']['characterId'],
+            'username' => @username
+          }
 
           faction_info[label] = progressions[faction_title]
         end
