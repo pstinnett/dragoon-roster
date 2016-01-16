@@ -4,7 +4,6 @@ gem 'httparty'
 
 gem 'therubyracer'  # If using Ruby
 #gem 'therubyrhino'  # If using JRuby
-gem 'jquery-rails'  # If using Bootstrap's JS plugins.
 gem 'less-rails-bootstrap'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
