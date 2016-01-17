@@ -5,6 +5,8 @@ gem 'cachebar'
 gem 'redis'
 gem 'rails_12factor'
 
+gem 'puma'
+
 gem 'therubyracer'  # If using Ruby
 #gem 'therubyrhino'  # If using JRuby
 gem 'less-rails-bootstrap'
