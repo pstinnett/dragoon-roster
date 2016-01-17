@@ -5,9 +5,14 @@ class Person < Destiny
   def initialize(membership_type, username)
     super()
     membership_id = self.get_membership_id(membership_type, username)
+    @membership_type = membership_type
     @username = username
     @api_info = self.query("/User/GetBungieAccount/#{membership_id}/#{membership_type}", {}, false)['Response']
     @characters = self.get_characters()
+  end
+
+  def url
+    return "/people/#{@membership_type}/#{@username}"
   end
 
   def api_info

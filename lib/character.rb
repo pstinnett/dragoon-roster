@@ -1,4 +1,5 @@
 require_relative 'destiny'
+require_relative 'person'
 class Character < Destiny
 
   def initialize(membership_type, username, character_id)
@@ -12,6 +13,14 @@ class Character < Destiny
     Rails.logger.debug "Class hash is #{class_hash}"
 		@classname = self.query("/Destiny/Manifest/3/#{class_hash}", {}, false)['Response']['data']['classDefinition']['className']
     Rails.logger.debug "Name Junk: #{@classname}"
+  end
+
+  def username
+    return @username
+  end
+
+  def person
+    return Person.new(@membership_type, @username)
   end
 
   def classname

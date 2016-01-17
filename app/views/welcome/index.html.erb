@@ -1,2 +1,5 @@
 <h1>Front Page TODO:  Add stuff here</h1>
 <p><a href="/clans/1">Dragoon Members and Junk</a><p>
+<% @characters.each do |character| %>
+    <p><%= render 'people/character_badge', {:character => character, :show_username => true} %></p>
+<% end %>

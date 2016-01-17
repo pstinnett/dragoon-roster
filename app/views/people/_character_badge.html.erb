@@ -1,3 +1,4 @@
+<% show_username ||= nil %>
 <div class="media">
 	<div class="media-left">
         <a href="#">
@@ -7,7 +8,10 @@
     <div class="media-body">
         <div class="row">
             <div class="col-md-1">
-                <h4 class="media-heading"><%= character.classname %>
+                <h4 class="media-heading"><%= character.classname %></h4>
+                <% if show_username %>
+                    <p><a href="<%= character.person.url %>"><%= character.person.destiny_account['userInfo']['displayName'] %></a></p>
+            <% end %>
             </div>
             <div class="col-md-3 text-right">
                 <p><strong><%= character.api_info['data']['characterBase']['powerLevel'] %></strong></p>

@@ -16,6 +16,7 @@ class Clan < ActiveRecord::Base
     raw_members = @d.clan_members(self.clan_id)
     members = []
     raw_members.each do |raw_member|
+      logger.debug "Looking up #{raw_member['user']}"
       logger.debug "Looking up #{raw_member['user']['psnDisplayName']}"
       members << Person.new(2, raw_member['user']['psnDisplayName'])
     end
