@@ -11,6 +11,10 @@ class Person < Destiny
     @characters = self.get_characters()
   end
 
+  def username
+    return @username
+  end
+
   def url
     return "/people/#{@membership_type}/#{@username}"
   end
