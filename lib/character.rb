@@ -42,7 +42,7 @@ class Character < Destiny
         'currentProgress' => progression_raw['currentProgress'],
         'progressToNextLevel' => progression_raw['progressToNextLevel'],
         'nextLevelAt' => progression_raw['nextLevelAt'],
-        'name' => progression_info['progression']['name'],
+        'name' => progression_info['progression']['name'].gsub("faction_pvp", "").gsub("_", " ").upcase,
         'pointsToNextLevel' => progression_raw['nextLevelAt'] - progression_raw['progressToNextLevel']
       }
     end

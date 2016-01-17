@@ -5,6 +5,9 @@ class PeopleController < ApplicationController
     @username = params[:username]
 		@account = d.get_account(params[:membership_type], params[:username])
     @person = Person.new(params[:membership_type], params[:username])
+
+    @ghost_link = d.get_platform_str(params[:membership_type])
+    @ghost_link = "http://destinyghosthunter.net/ghosts/#{d.get_platform_str(params[:membership_type])}/#{@username}/"
   end
 
   def factionstats

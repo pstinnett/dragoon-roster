@@ -2,9 +2,31 @@
 <div class="container">
 <%= render 'person_badge', {:person => @person} %>
 
-<% @person.characters.each do |character| %>
-    <%= render 'character_badge', {:character => character} %>
-<% end %>
-
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Characters</h3>
+    </div>
+    <div class="panel-body">
+        <% @person.characters.each do |character| %>
+            <%= render 'character_badge', {:character => character} %>
+        <% end %>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Links</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <a href="/people/<%= @person.destiny_account['userInfo']['membershipType'] %>/<%= @username %>/factionstats">
+                    Closest Faction Levelups
+            </li>
+            <li class="list-group-item">
+                <a href="<%= @ghost_link %>">Destiny Ghost Hunter</a>
+            </li>
+        </ul>
+    </div>
+</div>
 
 </div>

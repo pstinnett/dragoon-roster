@@ -36,6 +36,25 @@ class Destiny
     self.query("/Group/#{clan_id}", {}, false)['Response']['detail']
   end
 
+  def get_platform_int(platform_str)
+    if platform_str.is_a?
+      return platform_str
+    elsif platform_str == 'xbl'
+      return 1
+    elsif platform_str == 'psn'
+      return 2
+    end
+  end
+
+  def get_platform_str(platform_int)
+    platform_int = platform_int.to_i
+    if platform_int == 1
+      return 'xbl'
+    elsif platform_int == 2
+      return 'psn'
+    end
+  end
+
   def clan_members(clan_id)
     params = {
       'currentPage' => 1,
