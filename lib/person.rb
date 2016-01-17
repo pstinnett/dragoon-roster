@@ -6,6 +6,7 @@ class Person < Destiny
     super()
     membership_id = self.get_membership_id(membership_type, username)
     @membership_type = membership_type
+    @membership_id = membership_id
     @username = username
     @api_info = self.query("/User/GetBungieAccount/#{membership_id}/#{membership_type}", {}, false)['Response']
     @characters = self.get_characters()
@@ -42,6 +43,10 @@ class Person < Destiny
 
   def destiny_account
     return @api_info['destinyAccounts'].last
+  end
+
+  def account_stats
+    self.query("/Destiny/Stats/Account/#{@membership_type}/#{@membership_id}", {}, false)['Response']['mergedAllCharacters']['results']
   end
 
 end

@@ -1,0 +1,19 @@
+<table class="table table-striped">
+	<tr>
+		<th>Stat</th>
+		<th>Total</th>
+		<th>Per Game Average</th>
+	</tr>
+
+	<% stats.keys.sort.each do |stat_name| %>
+		<tr>
+			<td><%= stat_name.underscore.humanize %></td>
+			<td><%= stats[stat_name]['basic']['displayValue'] %></td>
+			<td>
+				<% if stats[stat_name].has_key?('pga') %>
+					<%= stats[stat_name]['pga']['displayValue'] %>
+				<% end %>
+			</td>
+		</tr>
+	<% end %>
+</table>
