@@ -1,5 +1,26 @@
-<h1>Front Page TODO:  Add stuff here</h1>
-<p><a href="/clans/1">Dragoon Members and Junk</a><p>
-<% @characters.each do |character| %>
-    <p><%= render 'people/character_badge', {:character => character, :show_username => true} %></p>
-<% end %>
+<h2>Overview</h2>
+<p><a href="/clans/1">Clan Member Listing</a><p>
+<div class="row">
+    <div class="col-md-9">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3>Highest Light</h3>
+            </div>
+            <div class="panel-body">
+                <% @characters_sorted.each do |character| %>
+                    <%= render 'people/character_badge', {:character => character, :show_username => true} %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Longest Playtime
+            </div>
+            <div class="panel-body">
+                Blah
+            </div>
+        </div>
+    </div>
+</div>

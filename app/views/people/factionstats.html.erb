@@ -1,10 +1,8 @@
 <br/>
-<div class="container">
 <%= render 'person_badge', {:person => @person} %>
 
 <h2>Points to Next Faction Levelup</h2>
 <% @factions_sorted.each do |faction_title, faction_info| %>
-    <div class="row">
         <div class="col-md-1">
             <p><%= faction_info['pointsToNextLevel'] %></p>
         </div>
@@ -20,7 +18,4 @@
                 faction_info['character']['character_id'],
             )} %>
         </div>
-    </div>
 <% end %>
-
-</div>

@@ -1,22 +1,17 @@
 <% show_username ||= nil %>
-<div class="media">
-	<div class="media-left">
-        <a href="#">
-    	    <img src='http://www.bungie.net/<%= character.api_info['data']['emblemPath'] %>'/>
-        </a>
+
+<div class="col-md-6">
+<div class="plate" style="background-image: url(http://www.bungie.net/<%= character.api_info['data']['backgroundPath'] %>)"/>
+
+	<img class="emblem" src='http://www.bungie.net/<%= character.api_info['data']['emblemPath'] %>'/>
+	<div class="details">
+		<div class="class"><%= character.classname %></div>
+		<% if show_username %>
+			<div class="user"><a href="<%= character.person.url %>"><%= character.person.destiny_account['userInfo']['displayName'] %></a></div>
+		<% end %>
+		<div class="level"><%= character.api_info['data']['characterBase']['powerLevel'] %></div>
+		<div class="light"><%= character.api_info['data']['characterLevel'] %></div>
 	</div>
-    <div class="media-body">
-        <div class="row">
-            <div class="col-md-1">
-                <h4 class="media-heading"><%= character.classname %></h4>
-                <% if show_username %>
-                    <p><a href="<%= character.person.url %>"><%= character.person.destiny_account['userInfo']['displayName'] %></a></p>
-            <% end %>
-            </div>
-            <div class="col-md-3 text-right">
-                <p><strong><%= character.api_info['data']['characterBase']['powerLevel'] %></strong></p>
-                <p><span class="glyphicon glyphicon-certificate" aria-hidden="true"></span> <%= character.api_info['data']['characterLevel'] %></p>
-            </div>
-        </div>
-    </div>
+
+</div>
 </div>
