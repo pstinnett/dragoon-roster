@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   get '/people/:membership_type/:username' => 'people#show'
   get '/people/:membership_type/:username/factionstats' => 'people#factionstats'
 
+  get '/clans/:clan_id/:statistic_type/:statistic' => 'clans#statistic'
+
   # Example resource route with options:
   #   resources :products do
   #     member do

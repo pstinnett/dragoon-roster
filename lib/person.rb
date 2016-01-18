@@ -12,6 +12,10 @@ class Person < Destiny
     @characters = self.get_characters()
   end
 
+  def clan
+    return Clan.find_by(clan_id: self.api_info['clans'].last['groupId'])
+  end
+
   def username
     return @username
   end

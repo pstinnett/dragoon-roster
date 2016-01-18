@@ -7,7 +7,7 @@
 
 	<% stats.keys.sort.each do |stat_name| %>
 		<tr>
-			<td><%= stat_name.underscore.humanize %></td>
+            <td><a href="/clans/<%= clan_id %>/<%= statistic_type %>/<%= stat_name %>"><%= stat_name.underscore.humanize %></a></td>
 			<td><%= stats[stat_name]['basic']['displayValue'] %></td>
 			<td>
 				<% if stats[stat_name].has_key?('pga') %>

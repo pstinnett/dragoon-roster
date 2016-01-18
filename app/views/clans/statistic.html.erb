@@ -1,0 +1,21 @@
+<h3><%= params[:statistic].underscore.humanize %></h3>
+<table class="table table-striped">
+    <tr>
+        <th>Person</th>
+        <th>Total</th>
+        <% if @show_pga %>
+        <th>Per  Game Average</th>
+        <% end %>
+    </tr>
+<% @target_stats_sorted.each do |person, v| %>
+    <tr>
+        <td><%= person %></td>
+        <td><%= @target_stats[person]['stat']['basic']['displayValue'] %></td>
+        <% if @show_pga %>
+        <td>
+            <%= @target_stats[person]['stat']['pga']['displayValue'] %>
+        </td>
+        <% end %>
+    </tr>
+<% end %>
+</table>
