@@ -1,6 +1,8 @@
 <div class="row">
     <div class="col-md-1">
+        <% if !person.api_info['bungieNetUser'].nil? %>
         <img height=75 width=75 src="http://www.bungie.net/<%= person.api_info['bungieNetUser']['profilePicturePath'] %>"/>
+        <% end %>
     </div>
     <div class="col-md-7">
         <h4>

@@ -20,7 +20,7 @@ class Character < Destiny
   end
 
   def person
-    return Person.new(@membership_type, @username)
+      Person.new(@membership_type, @username)
   end
 
   def classname

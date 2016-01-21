@@ -8,6 +8,8 @@ class Person < Destiny
     @membership_type = membership_type
     @membership_id = membership_id
     @username = username
+    
+    Rails.logger.debug "MEMID: #{membership_id}, TYPE: #{membership_type}"
     @api_info = self.query("/User/GetBungieAccount/#{membership_id}/#{membership_type}", {}, false)['Response']
     @characters = self.get_characters()
   end

@@ -9,17 +9,28 @@ class Destiny
 
   def initialize()
 		api_token = Rails.application.secrets.bungie_api_token
+    if api_token.nil?
+      abort("Make sure you set the DESTINY_API_KEY environmental variable")
+    end
     HTTParty::HTTPCache.redis = $redis
     @headers = { 'X-API-Key' => api_token, 'Content-Type' => 'application/json' }
   end
 
   def query(uri, query = {}, short_response = true)
 
+    Rails.logger.debug "URI: #{uri}"
+
     raw_results = self.class.get(
       uri,
       headers: @headers,
       query: query
     )
+
+    if raw_results['ErrorCode'] > 1
+      raise "Error returned from api: #{raw_results}"
+    end
+
+    Rails.logger.debug "Full Results: #{raw_results}"
 
     ## Do we want to return everything, or skip to results?
     if short_response
@@ -64,12 +75,21 @@ class Destiny
   end
 
 	def get_membership_id(membership_type, username)
+    Rails.logger.debug "Looking up user: #{username}"
 		uri = "/Destiny/#{membership_type}/Stats/GetMembershipIdByDisplayName/#{username}"
-    return self.query(
+    membership_id = self.query(
       uri,
       {},
       false
     )['Response']
+
+    if membership_id == "0"
+      msg = "No membership id found for #{username}"
+      raise msg
+    end
+
+    return membership_id
+
 	end
 
 	def get_account(membership_type, username)
